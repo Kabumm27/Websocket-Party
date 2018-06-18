@@ -1,0 +1,20 @@
+Pictionary:
+	- Auswahl des Malers: Reihum, Sieger, Fest
+		- Festlegung des Malers bei "Fest"
+	- W�rter
+		- W�rter als Objekte
+		- analyse der Eingaben
+	- Skip word
+	- Tipps
+	- Hotjoin ?
+	- Rematch
+
+Card Game:
+	- Nacharbeiten
+
+Sonstiges:
+	- Feuerwerk
+	- Dokumentation
+
+Lobby
+	- If no one joins after creation, an empty lobby stays in the system

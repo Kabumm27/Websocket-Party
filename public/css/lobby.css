@@ -1,0 +1,115 @@
+#lobby {
+    margin-top: 72px;
+}
+
+#lobby > .box {
+    position: relative;
+    width: 1000px;
+
+    margin: 0 auto;
+}
+
+#lobby > .box > .content {
+    min-height: 400px;
+    
+    padding: 5px;
+
+    background-color: #799e7e;
+}
+
+#lobby > .box > .content .left {
+    float: left;
+    width: 650px;
+}
+
+#lobby > .box > .content .right {
+    float: right;
+    width: 330px;
+}
+
+/* Players */
+#lobby > .box > .content table.players {
+    width: 100%;
+}
+
+#lobby > .box > .content table.players th {
+    background-color: #588676;
+}
+
+#lobby > .box > .content table.players tr {
+    height: 30px;
+}
+
+#lobby > .box > .content table.players tr:nth-child(2n + 1) {
+    background-color: rgba(121, 158, 145, 0.80);
+}
+
+#lobby > .box > .content table.players tr:nth-child(2n) {
+    background-color: rgba(121, 158, 145, 0.50);
+}
+
+#lobby > .box > .content table.players tr.selected{
+    background-color: brown;
+}
+
+#lobby > .box > .content table.players tr > td {
+    padding-left: 5px;
+}
+
+#lobby > .box > .content table.players .center {
+    text-align: center;
+}
+
+#lobby > .box > .content .owner {
+    font-weight: bold;
+}
+
+/* Buttons */
+#lobby .buttons {
+    padding: 10px;
+}
+
+
+/* Settings */
+#lobby ul.settings {
+    list-style-type: none;
+
+    margin: 0;
+    padding: 10px 0;
+
+    font-size: 16px;
+}
+
+#lobby ul.settings > li {
+    position: relative;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+
+    background-color: rgba(121, 158, 145, 1);
+}
+
+#lobby .settings .info {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    width: 16px;
+    height: 16px;
+
+    text-align: center;
+    line-height: 17px;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    color: #3f3f3f;
+
+    cursor: help;
+
+    border-radius: 50%;
+    border: 2px solid #3f3f3f;
+}
+
+#lobby h3 {
+    margin: 2px 0 0 0;
+    padding: 4px 25px;
+
+    background-color: #588676;
+}

@@ -1,0 +1,303 @@
+﻿#mau-mau {
+    position: absolute;
+    width: 100%;
+
+    margin-top: 20px;
+}
+
+#mau-mau > .timer {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    width: 80px;
+
+    padding: 5px 10px;
+
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+#mau-mau > .timer > .icon {
+    font-weight: bold;
+}
+
+#mau-mau > .end-turn > button {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 100px;
+
+    padding: 5px 10px;
+}
+
+#mau-mau > .center {
+    width: 800px;
+
+    margin: 0 auto;
+}
+
+#mau-mau .players {
+    font-size: 13px;
+}
+
+#mau-mau .players > .player-card {
+    display: inline-block;
+
+    width: 120px;
+    height: 70px;
+
+    padding: 10px;
+    margin: 5px;
+    
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+#mau-mau .players > .player-card > .name {
+    font-size: 12pt;
+}
+
+#mau-mau .players > .player-card.active > .name {
+    text-shadow: 0px 0px 2px blue;
+}
+
+#mau-mau .table-center {
+    position: relative;
+
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+#mau-mau .picked-suit {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+
+    padding: 5px 15px;
+
+    background-color: white;
+
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+#mau-mau .picked-suit > .suit {
+    font-size: 32px;
+    line-height: 22px;
+}
+
+#mau-mau .wish-suit {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    width: 120px;
+    height: 120px;
+
+    text-align: left;
+
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid black;
+
+    transform: rotate(45deg);
+}
+
+#mau-mau .wish-suit > * {
+    position: absolute;
+
+    font-size: 26px;
+    cursor: pointer;
+}
+
+#mau-mau .wish-suit .correct-rotation {
+    display: inline-block;
+    transform: rotate(-45deg);
+}
+
+#mau-mau .wish-suit > *:hover {
+    background-color: gray;
+}
+
+#mau-mau .wish-suit > .top {
+    top: 0px;
+    left: 0px;
+    width: 45px;
+    height: 39px;
+
+    padding-top: 21px;
+    padding-right: 15px;
+    text-align: right;
+
+    border-top-left-radius: 100%;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+#mau-mau .wish-suit > .right {
+    top: 0px;
+    right: 0px;
+    width: 45px;
+    height: 39px;
+
+    padding-top: 21px;
+    padding-left: 15px;
+    
+    border-top-right-radius: 100%;
+    border-left: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+#mau-mau .wish-suit > .bottom {
+    bottom: 0px;
+    right: 0px;
+    width: 45px;
+    height: 55px;
+
+    padding-top: 5px;
+    padding-left: 15px;
+    
+    border-bottom-right-radius: 100%;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+}
+
+#mau-mau .wish-suit > .left {
+    bottom: 0px;
+    left: 0px;
+    width: 45px;
+    height: 55px;
+
+    padding-top: 5px;
+    padding-right: 15px;
+    text-align: right;
+    
+    border-bottom-left-radius: 100%;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+#mau-mau .hand {
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+#mau-mau .card,
+#mau-mau .deck {
+    position: relative;
+	display: inline-block;
+	width: 100px;
+	height: 150px;
+	margin: 4px;
+	background-color: white;
+
+    border-radius: 5px;
+    box-shadow: 3px 3px 7px #333;
+}
+
+#mau-mau .card:not(:first-child) {
+    margin-left: -70px;
+}
+
+#mau-mau .card .rank,
+#mau-mau .deck .rank {
+    display: block;
+    
+	font-size: 16px;
+}
+
+#mau-mau .card .suit,
+#mau-mau .deck .suit {
+    display: block;
+    
+    line-height: 18px;
+	font-size: 24px;
+}
+
+#mau-mau .card .top-left,
+#mau-mau .deck .top-left {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+
+    text-align: center;
+}
+
+#mau-mau .card .center,
+#mau-mau .deck .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin-top: -22px;
+    margin-left: -12px;
+
+    font-size: 36px;
+}
+
+#mau-mau .card .bottom-right,
+#mau-mau .deck .bottom-right {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+    text-align: center;
+}
+
+
+#mau-mau .card-back {
+    background-color: #6d695c;
+    background-image:
+        repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 50%),
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 50%),
+        linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+        linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+}
+
+@-webkit-keyframes playableAnimation {
+    0%, 100% { box-shadow: 0px 0px 6px 1px blue; }
+    50% { box-shadow: 0px 0px 12px 2px blue; }
+}
+
+#mau-mau .card.playable {
+	cursor: pointer;
+	/* background-color: yellow; */
+    box-shadow: 0px 0px 8px 2px blue;
+    transition: -webkit-transform 0.5s;
+
+    -webkit-animation-name: playableAnimation; 
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+#mau-mau .press-me {
+    box-shadow: 0 0 8px 2px blue;
+}
+
+#mau-mau .card.playable:hover {
+    transition: -webkit-transform 0.5s;
+    transform: translateY(-10px);
+}
+
+#mau-mau .deck.playable {
+	cursor: pointer;
+	/* background-color: yellow; */
+    box-shadow: 0px 0px 8px 2px blue;
+    transition: -webkit-transform 0.5s;
+
+    -webkit-animation-name: playableAnimation; 
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+#mau-mau .deck.playable:hover {
+    transition: -webkit-transform 0.5s;
+    transform: translateX(3px);
+}
+
+#mau-mau .red {
+	color: #CC0000;
+}

@@ -1,0 +1,19 @@
+/* === RESPONSIVE DIVS === */
+/* ======================= */
+#spaceGameHead {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+
+    background-color: lightblue;
+}
+
+#spaceGameContent {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 70px);
+
+    top: 70px;
+    
+    background-color: lightgreen;
+}

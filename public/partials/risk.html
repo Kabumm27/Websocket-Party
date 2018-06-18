@@ -1,0 +1,36 @@
+﻿<div id="risk" ng-click="backgroundClick($event)">
+    <div class="debug">
+        <div>Phase: {{game.phase}}</div>
+        <div>Troops to place: {{player.state.reinforcements}}</div>
+        <div id="button">
+            <button ng-click="endPhase()">End Phase</button>
+        </div>
+
+        <div>
+            <input type="number" ng-model="selectedTroops" />
+            <button ng-click="execute()">Go</button>
+        </div>
+    </div>
+    <div class="players">
+        <div class="player-card" ng-repeat="p in playerCards" ng-class="{ active: p.currentPlayer }">
+            <div class="name">{{p.name}}</div>
+            <hr />
+            <div>{{p.troops}} troops</div>
+            <div>{{p.bonusArmies}} bonus armies</div>
+        </div>
+    </div>
+    <div class="map">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 662">
+            <g ng-repeat="m in mapData" stroke="{{m.stroke}}" fill="{{m.fill}}">
+                <g ng-repeat="p in m.countries" id="{{p.name}}" class="country" ng-class="{ neighbour: neighbours[p.id], selected: selectedRegion === p }" ng-click="phaseAction(p.id)">
+                    <path ng-attr-d="{{p.path}}"></path>
+                    <rect ng-attr-x="{{p.center.x - 15}}" ng-attr-y="{{p.center.y - 13}}" width="30" height="18" ng-attr-fill="{{playerInfo[game.regions[p.id].owner].color}}" />
+                    <text font-size="12" stroke="none" fill="black" text-anchor="middle" ng-attr-x="{{p.center.x}}" ng-attr-y="{{p.center.y}}">{{game.regions[p.id].troops}}</text>
+                </g>
+            </g>
+            <g>
+                <path stroke="black" width="2" ng-attr-d="{{pathToTarget}}"></path>
+            </g>
+        </svg>
+    </div>
+</div>

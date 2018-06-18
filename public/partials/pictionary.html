@@ -1,0 +1,82 @@
+﻿<!-- Head -->
+<div id="pictionaryHead">
+    <h2>Pictionary <span ng-tap="cancelGame()"> Cancel </span></h2>
+</div>
+<!-- Content -->
+<div id="pictionaryContent">
+    <!-- Left -->
+    <div id="pictionaryLeftTop">
+        <input type="text" id="pictionaryGuess" ng-model="guess" placeholder="Type here to guess" ng-keypress="makeGuess($event, guess)" ng-disabled="isCurrentDrawer" />
+        <timer start="game.timer.start" duration="game.timer.duration"></timer>
+    </div>
+    <div id="pictionaryLeftCenter">
+        <table id="pictionaryPlayerlist">
+            <tbody>
+                <tr ng-repeat="p in game.players">
+                    <td class="{{p.ingame ? '' : 'offline'}}">{{p.name}} {{p.roundFinished ? '&#10003;' : (p.name === game.currentDrawer ? '&#9998;' : '&#10007;')}}</td>
+                    <td>{{p.points}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="pictionaryLeftBottom">
+        <chat room-id="gameId"></chat>
+    </div>
+    <!-- Center -->
+    <div id="pictionaryCenter">
+        <table id="pictionaryOptions">
+            <tr>
+                <td class="pointer{{'#730E07' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#730E07')" style="background-color: #730E07;">&nbsp;</td>
+                <td class="pointer{{'#F7464A' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#F7464A')" style="background-color: #F7464A;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="pointer{{'#075792' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#075792')" style="background-color: #075792;">&nbsp;</td>
+                <td class="pointer{{'#0191D8' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#0191D8')" style="background-color: #0191D8;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="pointer{{'#1D9A1B' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#1D9A1B')" style="background-color: #1D9A1B; ">&nbsp;</td>
+                <td class="pointer{{'#8CC63E' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#8CC63E')" style="background-color: #8CC63E;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="pointer{{'#E1811D' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#E1811D')" style="background-color: #E1811D; ">&nbsp;</td>
+                <td class="pointer{{'#FFFF5C' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('#FFFF5C')" style="background-color: #FFFF5C;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="pointer{{'black' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('black')" style="background-color: black;">&nbsp;</td>
+                <td class="pointer{{'white' === lineColor ? ' whiteBorder' : ''}}" ng-tap="setColor('white')" style="background-color: white;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="background-color: white; text-align: center;" colspan="2">
+                    <select ng-model="lineWidth" ng-change="setWidth(lineWidth)" ng-disabled="!player.state.isCurrentDrawer">
+                        <option selected>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>5</option>
+                        <option>10</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="pointer" ng-tap="clearCanvas()" style="background-color: white; text-align: center;">clear</td>
+                <td style="border: none;">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    <!-- Right -->
+    <div id="pictionaryRight">
+        <canvas width="500" height="500" id="pictionaryCanvas" ng-mousedown="mousedownEvent($event)" ng-touchstart="touchstartEvent($event)" ng-mouseup="mouseupEvent($event)" ng-touchend="touchendEvent($event)" ng-mousemove="mousemoveEvent($event)" ng-touchmove="touchmoveEvent($event)"></canvas>
+    </div>
+</div>
+<!-- Overlay -->
+<div id="pictionaryOverlay" ng-show="game.gameOver">
+    <canvas id="fireworkCanvas" width="1024" height="680"></canvas>
+    <div>
+        <h3>Winners</h3>
+        <ul>
+            <li ng-repeat="p in game.players">
+                {{p.name}} - {{p.points}} points
+            </li>
+        </ul>
+        <button ng-tap="goToLandingPage()">Back to browser</button>
+    </div>
+</div>

@@ -1,0 +1,301 @@
+/* === GLOBAL === */
+/* ============== */
+body {
+    position: absolute;
+    width: 100%;
+    min-width: 1024px;
+    height: 100%;
+    min-height: 680px;
+
+    margin: 0;
+
+	font-family: Verdana;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/* === DIRECTIVES === */
+/* ================== */
+#settingsDiv {
+    width: 280px;
+
+    padding: 10px;
+
+    border: 1px solid black;
+
+    font-size: 11pt;
+}
+
+#settingsDiv h3 {
+    margin-top: 0px;
+    font-size: 13pt;
+}
+
+#settingsDiv label {
+    
+}
+
+#settingsDiv input {
+    width: 134px;
+    height: 18px;
+
+    padding: 3px 0 3px 6px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+
+    font-size: 14px;
+}
+
+
+/* === BROWSER === */
+/* =============== */
+#browserButtons {
+    width: 600px;
+    height: 40px;
+}
+
+#browserButtons button {
+    width: 140px;
+    height: 25px;
+    margin-left: 40px;
+}
+
+#browserNewLobby {
+    position: fixed;
+    top: calc(50% - 140px);
+    left: 180px;
+
+    width: 260px;
+    height: 280px;
+
+    padding: 35px 25px;
+
+    border: 1px solid black;
+    background-color: white;
+}
+
+#browserNewLobby h3 {
+    font-size: 14pt;
+    margin-top: 0px;
+}
+
+#browserNewLobby label {
+    margin-left: 10px;
+
+    font-size: 13pt;
+}
+
+#browserNewLobby input {
+    width: 210px;
+    height: 18px;
+
+    padding: 3px 0 3px 6px;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    border-radius: 3px;
+
+    font-size: 16px;
+}
+
+#browserNewLobby select {
+    width: 220px;
+    height: 30px;
+
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    font-size: 16px;
+}
+
+#browserNewLobby button {
+    width: 120px;
+    height: 25px;
+
+    margin-top: 15px;
+}
+
+#browserTable thead, tbody, tfoot {
+    display: block;
+}
+
+#browserTable tbody {
+    max-height: 200px;
+    overflow: auto;
+}
+
+#browserTable td {
+    border: 1px solid black;
+}
+
+#browserTable th:nth-child(1), #browserTable td:nth-child(1) {
+    width: 250px;
+}
+
+#browserTable th:nth-child(2), #browserTable td:nth-child(2) {
+    width: 120px;
+}
+
+#browserTable th:nth-child(3), #browserTable td:nth-child(3) {
+    width: 150px;
+}
+
+#browserTable th:nth-child(4), #browserTable td:nth-child(4) {
+    width: 80px;
+}
+
+#browserTable th:nth-child(5) {
+    width: 14px;
+}
+
+
+.browserSelected {
+    background-color: lightblue;
+}
+
+.browserClickable {
+    cursor: pointer;
+}
+
+/* === LOBBY === */
+/* ============= */
+#lobbyButtons {
+    width: 400px;
+    height: 40px;
+}
+
+#lobbyButtons button {
+    width: 140px;
+    height: 25px;
+    margin-left: 40px;
+}
+
+#lobbyPlayerTable thead, tbody, tfoot {
+    display: block;
+}
+
+#lobbyPlayerTable tbody {
+    max-height: 200px;
+    overflow: auto;
+}
+
+#lobbyPlayerTable td {
+    border: 1px solid black;
+}
+
+#lobbyPlayerTable th:nth-child(1), #lobbyPlayerTable td:nth-child(1) {
+    width: 200px;
+
+    padding: 12px 5px;
+}
+
+#lobbyPlayerTable th:nth-child(2), #lobbyPlayerTable td:nth-child(2) {
+    width: 80px;
+    text-align: center;
+}
+
+#lobbyPlayerTable tr {
+    
+}
+
+#lobbyPlayerTable input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+
+#lobbyPlayerOptions ul {
+    display: block;
+}
+
+#lobbyPlayerOptions li {
+    width: 100px;
+
+    cursor: pointer;
+
+    font-size: 11pt;
+}
+
+/* === Whatever === */
+/* ================ */
+#head {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+
+    background-color: lightblue;
+}
+
+#content {
+    position: absolute;
+
+    top: 70px;
+
+    width: 100%;
+    height: calc(100% - 70px);
+}
+
+#leftTop {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+
+    background-color: lightgreen;
+}
+
+#leftBottom {
+    position: absolute;
+    width: 60%;
+    height: 40%;
+
+    top: 60%;
+
+    background-color: lightpink;
+}
+
+#right {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+
+    left: 60%;
+
+    background-color: lightskyblue;
+}
+
+.card {
+	display: inline-block;
+	width: 65px;
+	height: 100px;
+	margin: 2px;
+	padding: 3px;
+	font-size: 20px;
+	background-color: grey;
+}
+
+.cardBack {
+    background-color: #6d695c;
+    background-image:
+        repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+        linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+        linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+    background-size: 70px 120px;
+}
+
+.playable {
+	/* cursor: pointer; */
+	background-color: yellow;
+}
+
+.yourTurn {
+	text-shadow: 0 0 3px blue;
+}
+
+.red {
+	color: #CC0000;
+}

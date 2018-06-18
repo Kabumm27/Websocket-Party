@@ -1,0 +1,17 @@
+﻿<div id="rtsPrototype">
+    <h1>rtsPrototype - Header</h1>
+    <div>
+        <span>Wood: {{player.state.resources.wood}}</span>
+        <span>Stone: {{player.state.resources.stone}}</span>
+        <span>Iron: {{player.state.resources.iron}}</span>
+    </div>
+
+    <div>
+        <div ng-repeat="base in player.state.bases">
+            <h3>Base {{$index}}</h3>
+            <ul ng-repeat="building in base.buildings">
+                <li>{{building.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

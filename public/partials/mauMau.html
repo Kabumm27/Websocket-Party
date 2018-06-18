@@ -1,0 +1,63 @@
+<div id="mau-mau">
+
+    <div class="timer" ng-show="initialData.options.totalTurnTimer">
+        <!-- &#9201; -->
+        <span class="icon">&#8987;</span> {{Math.round(game.currentTurnTime / 1000)}} sec
+    </div>
+
+    <div class="end-turn">
+        <button ng-click="endTurn()" ng-disabled="!validMoves.endTurn" ng-class="{ 'press-me': validMoves.endTurn }">End Turn</button>
+    </div>
+
+    <div class="center">
+        <div class="players">
+            <div ng-repeat="p in game.players" class="player-card" ng-class="{ active: p.id === game.currentPlayer }">
+                <span class="name">{{playerNames[p.id]}}</span>
+                <hr />
+                <div>{{p.state.cardsNr}} cards left.</div>
+            </div>
+        </div>
+
+        <div class="table-center">
+            <div class="deck card-back" ng-class="{ playable: validMoves.drawCard }" ng-click="drawCard()"></div>
+            <div class="deck" ng-class="{ red: game.playingStack.topCard.suit === 'Hearts' || game.playingStack.topCard.suit === 'Diamonds' }">
+                <div class="top-left">
+                    <span class="rank">{{game.playingStack.topCard.rank}}</span>
+                    <span class="suit" ng-bind-html="symbol[game.playingStack.topCard.suit]"></span>
+                </div>
+                <div class="center" ng-bind-html="symbol[game.playingStack.topCard.suit]"></div>
+                <div class="bottom-right">
+                    <span class="rank">{{game.playingStack.topCard.rank}}</span>
+                    <span class="suit" ng-bind-html="symbol[game.playingStack.topCard.suit]"></span>
+                </div>
+            </div>
+            <div class="picked-suit" ng-show="game.playingStack.topCard.wishedSuit">
+                Wished for:
+                <br />
+                <span class="suit" ng-class="{ red: game.playingStack.topCard.wishedSuit === 'Hearts' || game.playingStack.topCard.wishedSuit === 'Diamonds' }"
+                      ng-bind-html="symbol[game.playingStack.topCard.wishedSuit]"></span>
+            </div>
+            <div class="wish-suit" ng-show="player.state.wishSuit">
+                <div class="top red" ng-click="wishSuit('Hearts')"><span class="correct-rotation">&hearts;</span></div>
+                <div class="right" ng-click="wishSuit('Spades')"><span class="correct-rotation">&spades;</span></div>
+                <div class="bottom red" ng-click="wishSuit('Diamonds')"><span class="correct-rotation">&diams;</span></div>
+                <div class="left" ng-click="wishSuit('Clubs')"><span class="correct-rotation">&clubs;</span></div>
+            </div>
+        </div>
+
+        <div class="hand">
+            <div class="card" ng-repeat="card in player.state.cards" ng-class="{ red: card.suit === 'Hearts' || card.suit === 'Diamonds', playable: validMoves.cards[$index] }"
+                 ng-click="playCard(card)">
+                <div class="top-left">
+                    <span class="rank">{{card.rank}}</span>
+                    <span class="suit" ng-bind-html="symbol[card.suit]"></span>
+                </div>
+                <div class="center" ng-bind-html="symbol[card.suit]"></div>
+                <div class="bottom-right">
+                    <span class="rank">{{card.rank}}</span>
+                    <span class="suit" ng-bind-html="symbol[card.suit]"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

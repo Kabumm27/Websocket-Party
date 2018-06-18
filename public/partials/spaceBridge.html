@@ -1,0 +1,12 @@
+﻿<div id="spaceBridge">
+    <h1>spaceBridge - Header</h1>
+    
+    <div>
+        <span>{{game.ship.position}}</span>
+    </div>
+
+    <div class="pilot">
+        <input ng-model="game.ship.speed" ng-change="updateShipSpeed()" type="range" min="0" max="100" step="0.01" />
+        <span>{{game.ship.speed}}</span>
+    </div>
+</div>

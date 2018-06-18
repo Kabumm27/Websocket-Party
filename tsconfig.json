@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "rootDir": "./server/"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,0 +1,84 @@
+﻿<div id="browser">
+    <div class="content">
+        <ul class="tabs">
+            <li ng-class="selectedTab === 0 ? 'active' : ''" ng-click="selectTab(0)">Lobbies</li>
+            <li ng-class="selectedTab === 1 ? 'active' : ''" ng-click="selectTab(1)">Running Games <span class="active-games">{{activeRunningGames}}</span></li>
+            <li ng-class="selectedTab === 2 ? 'active' : ''" ng-click="selectTab(2)">New Game</li>
+        </ul>
+        <div class="tabs-content">
+            <!-- Tab 0 -->
+            <div class="clear" ng-show="selectedTab === 0">
+                <div class="left">
+                    <table class="lobbies">
+                            <tr>
+                                <th>Name</th>
+                                <th>Owner</th>
+                                <th>Game</th>
+                                <th>Players</th>
+                            </tr>
+                            <tr ng-repeat="game in openLobbies" ng-class="selectedLobbyIndex === $index ? 'selected': ''" ng-click="joinLobby($event, $index, game.id)">
+                                <td>{{game.name}}</td>
+                                <td>{{game.owner}}</td>
+                                <td>{{game.gameName}}</td>
+                                <td>{{game.user.current}}/{{game.user.max}}</td>
+                            </tr>
+                            <tr ng-show="openLobbies.length === 0">
+                                <td colspan="4">No games available.</td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="right">
+                    <button ng-click="refreshList()">Refresh</button>
+                    <button ng-disabled="!selectedLobbyId" ng-click="joinLobbyButton()">Join Lobby</button>
+                </div>
+            </div>
+            
+            <!-- Tab 1 -->
+            <div class="clear" ng-show="selectedTab === 1">
+                <div class="left">
+                    <table class="running-games">
+                        <tr>
+                            <th>Name</th>
+                            <th>Game</th>
+                            <th>Your turn</th>
+                        </tr>
+                        <tr ng-repeat="g in runningGames" class="browserClickable" ng-click="goToGame(g.label, g.id)">
+                            <td>{{g.name}}</td>
+                            <td>{{g.gameName}}</td>
+                            <td>{{g.isYourTurn}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="right">
+                    <button ng-click="refreshList()">Refresh</button>
+                </div>
+            </div>
+            
+            <!-- Tab 2 -->
+            <div class="selectable-games clear" ng-show="selectedTab === 2">
+                <div class="left">
+                    <ul>
+                        <li ng-repeat="game in selectableGames" ng-class="createNewLobby.game === game ? 'selected' : ''" ng-click="selectGame(game)">
+                            <div class="name">{{game.name}}</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <form novalidate ng-show="createNewLobby.game">
+                        <h3 class="game-name">{{createNewLobby.game ? createNewLobby.game.name : ""}}</h3>
+                        <label for="name">Name</label><br />
+                        <input type="text" name="name" ng-model="createNewLobby.name" ng-minlength="3" ng-maxlength="16" required /><br />
+                        <label for="privacy">Privacy</label><br />
+                        <select name="privacy" ng-model="createNewLobby.privacy">
+                            <option value="Public">Public</option>
+                            <option value="Hidden">Hidden</option>
+                        </select><br />
+                        <label for="maxUsers">Max. players: {{createNewLobby.maxUsers}}</label><br />
+                        <input type="range" ng-model="createNewLobby.maxUsers" name="maxUsers" min="{{createNewLobby.game ? createNewLobby.game.minUsers : 2}}" max="{{createNewLobby.game ? createNewLobby.game.maxUsers : 2}}" required /><br />
+                        <button ng-click="createLobby()">Create Lobby</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

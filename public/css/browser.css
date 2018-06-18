@@ -1,0 +1,181 @@
+#browser {
+    margin-top: 30px;
+}
+
+#browser .content {
+    position: relative;
+
+    width: 1000px;
+
+    margin: 0 auto;
+}
+
+/* Tabs header */
+#browser .content ul.tabs {
+    list-style-type: none;
+
+    padding-left: 30px;
+    padding-bottom: 42px;
+    margin: 12px 0 0 0;
+
+    font-size: 15px;
+}
+
+#browser .content ul.tabs > li {
+    float: left;
+    height: 28px;
+    min-width: 120px;
+
+    padding: 10px 30px 0px 30px;
+    margin: 2px 2px 0 2px;
+
+    text-align: center;
+    cursor: pointer;
+
+    border: 2px solid #58865f;
+    background-color: #799e7e;
+}
+
+#browser .content ul.tabs li.active {
+    border-bottom: 1px solid #799e7e;
+}
+
+#browser .content .tabs-content {
+    position: relative;
+    min-height: 400px;
+
+    padding: 5px;
+
+    background-color: #799e7e;
+    /*box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.8);*/
+}
+
+#browser .content > .tabs .active-games {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    margin-left: 5px;
+    margin-right: -5px;
+
+    font-weight: bold;
+
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: #588676;
+}
+
+
+/* Tabs content */
+#browser > .content > .tabs-content .left {
+    float: left;
+    width: 650px;
+}
+
+#browser > .content > .tabs-content .right {
+    float: right;
+    width: 330px;
+}
+
+/* Lobbies & running games tab */
+#browser > .content > .tabs-content table.lobbies,
+#browser > .content > .tabs-content table.running-games {
+    width: 100%;
+}
+
+#browser > .content > .tabs-content table.lobbies th,
+#browser > .content > .tabs-content table.running-games th {
+    background-color: #588676;
+}
+
+#browser > .content > .tabs-content table.lobbies tr,
+#browser > .content > .tabs-content table.running-games tr {
+    height: 30px;
+}
+
+#browser > .content > .tabs-content table.lobbies tr:nth-child(2n + 1),
+#browser > .content > .tabs-content table.running-games tr:nth-child(2n + 1) {
+    background-color: rgba(121, 158, 145, 0.80);
+}
+
+#browser > .content > .tabs-content table.lobbies tr:nth-child(2n),
+#browser > .content > .tabs-content table.running-games tr:nth-child(2n) {
+    background-color: rgba(121, 158, 145, 0.50);
+}
+
+#browser > .content > .tabs-content table.lobbies tr.selected,
+#browser > .content > .tabs-content table.running-games tr.selected {
+    background-color: brown;
+}
+
+#browser > .content > .tabs-content table.lobbies tr > td,
+#browser > .content > .tabs-content table.running-games tr > td {
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+
+/* New Game tab */
+#browser > .content > .tabs-content .selectable-games {
+    
+}
+
+#browser > .content > .tabs-content .selectable-games ul {
+    margin: 0;
+    padding: 0;
+}
+
+#browser > .content > .tabs-content .selectable-games ul > li {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 90px;
+
+    margin: 5px 5px 0px 5px;
+
+    cursor: pointer;
+
+    background-color: #588676;
+}
+
+#browser > .content > .tabs-content .selectable-games ul > li .name {
+    position: absolute;
+    bottom: 5px;
+
+    width: 140px;
+    margin-left: 10px;
+
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#browser > .content > .tabs-content .selectable-games ul > li:hover,
+#browser > .content > .tabs-content .selectable-games ul > li.selected {
+    outline: 2px solid brown;
+}
+
+#browser > .content > .tabs-content .selectable-games form {
+    display: block;
+    height: 100%;
+
+    padding: 5px 10px;
+
+    font-size: 14px;
+
+    background-color: #588676;
+}
+
+#browser > .content > .tabs-content .selectable-games form > .game-name {
+    margin: 5px 0;
+
+    text-align: center;
+}
+
+#browser > .content > .tabs-content .selectable-games form > input,
+#browser > .content > .tabs-content .selectable-games form > select,
+#browser > .content > .tabs-content .selectable-games form > button {
+    width: 180px;
+
+    margin: 5px 0px 10px 0px;
+}

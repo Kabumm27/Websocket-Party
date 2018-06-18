@@ -1,0 +1,58 @@
+<div id="lobby">
+    <div class="box">
+        <div class="content clear">
+            <div class="left">
+                <table class="players">
+                    <tr>
+                        <th>Players</th>
+                        <th>Team</th>
+                        <th>Ready</th>
+                        <th>Spectator</th>
+                    </tr>
+                    <tr ng-repeat="p in players">
+                        <td>
+                            <span class="name">{{p.name}}</span>
+                            <span class="owner" ng-show="p.owner" title="Owner of this lobby.">&#9813;</span>
+                        </td>
+                        <td class="center">
+                            <select ng-model="team" ng-options="team for team in teams" ng-disabled="teams.length === 0" ng-change="setOptions(team)">
+                                <option value="" selected>No Team</option>
+                            </select>
+                        </td>
+                        <td class="center">
+                            <input type="checkbox" ng-model="p.ready" ng-disabled="p !== player" ng-change="setReadyState(p.ready)" />
+                        </td>
+                        <td class="center">
+                            <input type="checkbox" ng-disabled="true" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="right">
+                <h3>Menu</h3>
+                <div class="buttons">
+                    <button ng-click="startGame()" ng-disabled="!player.owner || !everyReady()">Start Game</button>
+                </div>
+                <div ng-if="settings.length >= 0">
+                    <h3>Settings</h3>
+                    <ul class="settings">
+                        <li ng-repeat="(key, s) in settings">
+                            <div ng-if="s.type === 'int'">
+                                <label>{{s.name}}</label><br />
+                                <input type="text" ng-model="values[$index]" ng-focus="saveLastValue($index)" ng-blur="onSettingsChange($index)" ng-disabled="!player.owner" />
+                                {{s.suffix}}<br />
+                            </div>
+                            <div ng-if="s.type === 'boolean'">
+                                <input type="checkbox" ng-model="values[$index]" ng-change="onCheckboxChange($index)" ng-disabled="!player.owner" />
+                                <label>{{s.name}}</label><br />
+                            </div>
+                            <div class="info" title="Test">
+                                i
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

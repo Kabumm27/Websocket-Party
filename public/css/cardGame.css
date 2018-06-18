@@ -1,0 +1,46 @@
+/* === Whatever === */
+/* ================ */
+#head {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+
+    background-color: lightblue;
+}
+
+#content {
+    position: absolute;
+
+    top: 70px;
+
+    width: 100%;
+    height: calc(100% - 70px);
+}
+
+#leftTop {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+
+    background-color: lightgreen;
+}
+
+#leftBottom {
+    position: absolute;
+    width: 60%;
+    height: 40%;
+
+    top: 60%;
+
+    background-color: lightpink;
+}
+
+#right {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+
+    left: 60%;
+
+    background-color: lightskyblue;
+}

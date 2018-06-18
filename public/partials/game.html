@@ -1,0 +1,17 @@
+<div>
+	<div id="message"></div>
+	<div id="winners" ng-if="winners"><div ng-repeat="w in winners">{{($index + 1) + '. ' + w.name}}</div><button ng-click="goToLobby()">Back to Lobby</button></div>
+	<div id="playerName" class="{{player.state.yourTurn ? 'yourTurn' : ''}}">{{player.name}}</div>
+	<div id="drawingStack"><ui-stack ng-if="game" stack="game.drawingStack" clickable="true" playable="validMoves.drawCard" game-id="gameId"></ui-stack></div>
+	<div id="playingStack"><ui-stack ng-if="game" stack="game.playingStack" clickable="false" playable="false" game-id="gameId"></ui-stack></div>
+	<div id="myHand">
+		<ui-card ng-repeat="c in player.cards" card="c" playable-cards="validMoves.cards" game-id="gameId"></ui-card>
+	</div>
+	<div id="button"><button ng-click="endTurn()" ng-disabled="!validMoves.endTurn">End Turn</button></div>
+	<div id="wishColor" ng-if="player.state.wishColor">
+		<div class="card playable" ng-click="wishColor('Hearts')">&hearts;</div>
+		<div class="card playable" ng-click="wishColor('Diamonds')">&diams;</div>
+		<div class="card playable" ng-click="wishColor('Spades')">&spades;</div>
+		<div class="card playable" ng-click="wishColor('Clubs')">&clubs;</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<!-- Head -->
+<div id="spaceGameHead">
+    <h2>SpaceGame</h2>
+</div>
+<!-- Content -->
+<div id="spaceGameContent">
+
+</div>
+<!-- Overlay -->
+<div id="spaceGameOverlay" ng-show="game.gameOver">
+    <canvas id="fireworkCanvas" width="1024" height="680"></canvas>
+    <div>
+        <h3>Winners</h3>
+        <ul>
+            <li ng-repeat="p in game.players">
+                {{p.name}} - {{p.points}} points
+            </li>
+        </ul>
+        <button ng-tap="goToLandingPage()">Back to browser</button>
+    </div>
+</div>
